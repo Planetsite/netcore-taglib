@@ -36,5 +36,5 @@ packages
 .DS_Store
 src/taglib-sharp.XML
 
-/src/taglib-sharp.xml
+taglib-sharp.xml
 /src/*.nupkg
