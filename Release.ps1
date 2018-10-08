@@ -14,7 +14,7 @@ Write-Verbose "Comment: $Comment"
 
 $PackageName   = "TagLib"
 $SolutionDir   = "D:\git\netcore-taglib"
-$PackageDir    = "$SolutionDir\src\$PackageName"
+$PackageDir    = "$SolutionDir\src"
 $NugetEndPoint = "http://192.168.2.129:5056/v3/index.json"
 
 Write-Verbose "Solution directory: $SolutionDir"
