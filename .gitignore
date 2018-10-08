@@ -35,3 +35,6 @@ packages
 !packages.config
 .DS_Store
 src/taglib-sharp.XML
+
+/src/taglib-sharp.xml
+/src/*.nupkg
