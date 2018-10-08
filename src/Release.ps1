@@ -19,18 +19,18 @@ $NugetEndPoint = "http://192.168.2.129:5056/v3/index.json"
 
 Write-Verbose "Solution directory: $SolutionDir"
 Write-Verbose "Package directory:  $PackageDir"
-Write-Verbose "CsProj file:        $PackageDir\taglib-sharp.csproj"
+Write-Verbose "CsProj file:        $PackageDir\$PackageName.csproj"
 
 # Update package metadata
 cd $PackageDir
-$CsProjContent = Get-Content "taglib-sharp.csproj"
+$CsProjContent = Get-Content "$PackageName.csproj"
 $VersionToReplace         = $CsProjContent -match '<Version>(\d+\.\d+.\d+\.?\d*)</Version>'
 $AssemblyVersionToReplace = $CsProjContent -match '<AssemblyVersion>(\d+\.\d+.\d+\.\d+)</AssemblyVersion>'
 $FileVersionToReplace     = $CsProjContent -match '<FileVersion>(\d+\.\d+.\d+\.\d+)</FileVersion>'
 $CsProjContent = $CsProjContent.Replace($VersionToReplace,         "    <Version>$Version</Version>")
 $CsProjContent = $CsProjContent.Replace($AssemblyVersionToReplace, "    <AssemblyVersion>$Version.0</AssemblyVersion>")
 $CsProjContent = $CsProjContent.Replace($FileVersionToReplace,     "    <FileVersion>$Version.0</FileVersion>")
-Set-Content "taglib-sharp.csproj" $CsProjContent
+Set-Content "$PackageName.csproj" $CsProjContent
 
 # Commit & tag
 cd $SolutionDir
