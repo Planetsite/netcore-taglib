@@ -44,7 +44,7 @@ git push -q --tags
 
 Write-Verbose "Tag created: $Version"
 
-# Create & publish package
+# Create & publish packagecd .
 dotnet pack -o . --include-symbols
 dotnet nuget push --source $NugetEndPoint "$PackageDir\$PackageName.$Version.symbols.nupkg"
 del "$PackageDir\$PackageName.$Version.nupkg"
